@@ -10,7 +10,7 @@ Exemplo:
 $result = true and false;
 # O resultado seria true
 
-$ result = false or true;
+$result = false or true;
 # O resultado seria false
 ```
 
