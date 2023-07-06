@@ -1,0 +1,12 @@
+#condSection {
+    border: 1px solid black;
+    width: 400px;
+}
+
+#condSection > pre{
+    margin-left: 10px;
+}
+
+#condSection > p, h2{
+    margin-left: 5px;
+}
