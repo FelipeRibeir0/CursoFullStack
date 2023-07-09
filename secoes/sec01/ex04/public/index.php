@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="https://www.php.net/favicon.svg?v=2">
+    <title>Operadores</title>
+</head>
+<body>
 <?php 
 
 print "<h1>Operadores de atribuição</h1>";
@@ -67,3 +76,5 @@ print "<h1>Operadores de incremento e decremento</h1>";
 echo "<p>Adição: ++</p>";
 echo "<p>Subtração: --</p>"
 ?>
+</body>
+</html>

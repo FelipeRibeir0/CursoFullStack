@@ -2,8 +2,18 @@
 
 include './variaveis.php';
 require './function.php';
+?>
 
-echo "<h1>Tipagem das variáveis</h1>";
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="https://www.php.net/favicon.svg?v=2">
+    <title>Tipagem</title>
+</head>
+<body>
+<?php echo "<h1>Tipagem das variáveis</h1>";
 
 #Strings
 
@@ -58,3 +68,6 @@ A variável com o valor " . $null . " é do tipo " . mostrarTipo($null).
 "<br>
 Da mesma forma que o false, o valor null também é representado pelo vazio em PHP
 <hr>";
+?>
+</body>
+</html>

@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="https://www.php.net/favicon.svg?v=2">
+    <title>Comparação</title>
+</head>
+<body>
 <?php 
 print "<h1>Operadores de comparação</h1>";
 
@@ -72,3 +81,5 @@ echo "<p>!true = ";
 var_dump(!$true);
 echo "<em>( O operador <strong>!</strong> inverte o valor booleano, transformando o true em um false)</em></p>"
 ?>
+</body>
+</html>
