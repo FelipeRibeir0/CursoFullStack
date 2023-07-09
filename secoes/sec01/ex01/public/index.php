@@ -11,6 +11,6 @@ include './variavel.php';
     <title>Variável</title>
 </head>
 <body>
-    <p><?php "O meu nome é " . $name; ?></p>
+    <p><?php echo "O meu nome é " . $name; ?></p>
 </body>
 </html>
