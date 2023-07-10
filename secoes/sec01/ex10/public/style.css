@@ -1,0 +1,54 @@
+h1{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+}
+
+fieldset
+{
+  background-color:#cccccc49;
+  width:600px;
+  padding:12px;
+  margin: 10px 0 10px 0;
+  border-radius:15px;
+}
+
+h2{
+    display: flex;
+    transform: translateX(120%);
+    width: 200px;
+    align-self: center;
+}
+
+.explicacao{
+    color: gray;
+}
+
+#exerc
+{
+  background-color:#5351c249;
+  width:600px;
+  padding:12px;
+  margin: 10px 0 10px 0;
+  border-radius:15px;
+}
+
+.bi{
+    float: right;
+    cursor: pointer;
+    color: blue;
+}
+
+.bi:hover{
+    color: rgb(59, 92, 199);
+}
+
+#devDetails{
+    background-image: linear-gradient(to right, #3e8f3b49,#3b8d7f49, #1e4e2e49,#2139556c);
+    display: none;
+}
+
+#devDetails > .explicacao{
+    color: rgb(1, 0, 83);
+}
