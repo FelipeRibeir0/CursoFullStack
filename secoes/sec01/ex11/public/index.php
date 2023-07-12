@@ -68,7 +68,7 @@ foreach ($randIndex as $i => $indice) {
 
         <fieldset>
             <h3>Array Push</h3>
-            <?php array_push($arrayPush, 'teste') ?>
+            <?php array_push($arrayPush, 'Último elemento') ?>
             <p>Input: array_push($dadosArray, 'Último elemento')</p>
             <pre>Output: <?php var_dump($arrayPush) ?></pre>
             <p class="explicacao">Adicionar um elemento no último index do Array</p>
