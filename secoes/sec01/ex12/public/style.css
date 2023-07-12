@@ -1,0 +1,95 @@
+:root{
+--string: rgba(255, 0, 0, 0.250);
+--bool: rgba(255, 255, 0, 0.250);
+--int: rgba(128, 0, 128, 0.250);
+--double: rgba(144, 238, 144, 0.250);
+--object: rgba(0, 0, 255, 0.250);
+--array: rgba(0, 171, 184, 0.25);
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+fieldset {
+    background-color: #cccccc49;
+    width: 600px;
+    padding: 0px;
+    margin: 10px 0 10px 0;
+    border-radius: 15px;
+}
+
+h2 {
+    padding-top: 10px;
+    margin-top: 0px;
+    display: flex;
+    width: auto;
+    align-self: center;
+    justify-content: center;
+}
+
+.explicacao {
+    color: darkslategray;
+}
+
+.codigo {
+    color: darkgreen;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+p{
+    margin: 5px 0px 5px 0px;
+}
+
+#stringBool{
+    background-image: linear-gradient(to right, var(--string),var(--bool));
+}
+
+#intBool{
+    background-image: linear-gradient(to right, var(--int),var(--bool));
+}
+
+#intString{
+    background-image: linear-gradient(to right, var(--int),var(--string));
+    border-bottom: 1px solid black;
+}
+
+#doubleString{
+    background-image: linear-gradient(to right, var(--double),var(--string));
+}
+
+#doubleInt{
+    background-image: linear-gradient(to right, var(--double),var(--int));
+    border-bottom: 1px solid black;
+}
+
+#intArray{
+    background-image: linear-gradient(to right, var(--int),var(--array));
+}
+
+#arrayObject{
+    background-image: linear-gradient(to right, var(--array),var(--object));
+}
+
+#objectArray{
+    background-image: linear-gradient(to right, var(--object),var(--array));
+}
+
+div{
+    padding-bottom: 10px;
+}
+
+hr{
+    border: none;
+    height: 1px;
+    background-color: black;
+}
