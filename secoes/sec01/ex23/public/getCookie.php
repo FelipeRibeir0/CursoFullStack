@@ -8,11 +8,19 @@
 </head>
 <body>
     <h1>Utilizando Cookies</h1>
-    <p>Neste arquivo eu utilizarei a variável super global $_COOKIE</p>
-<p>
+    <p>Neste arquivo eu utilizarei a variável super global <strong>$_COOKIE</strong></p>
+
     <?php 
-    echo "Meu nome é {$_COOKIE['nome']} e eu tenho {$_COOKIE['idade']} anos";
+    if (isset($_COOKIE['nome']) && isset($_COOKIE['idade']) && isset($_COOKIE['hora']))
+    {
+    echo "<p>Meu nome é {$_COOKIE['nome']} e eu tenho {$_COOKIE['idade']} anos</p>";
+    echo "<p> {$_COOKIE['hora']} </p>";
+    }
+    else
+    {
+        header("Location: index.php");
+    }
     ?>
-</p>
+
 </body>
 </html>
