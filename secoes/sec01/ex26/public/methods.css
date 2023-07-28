@@ -1,0 +1,28 @@
+.fa-arrow-left {
+    font-size: 24px;
+    color: red;
+    cursor: pointer;
+    background-image: linear-gradient(to right, rgb(235, 235, 235), rgb(210, 210, 210), rgb(215, 215, 215));
+    border-radius: 60px;
+    box-shadow: 5px 5px 5px rgb(177, 177, 177);
+    padding: 6px;
+}
+
+.fa-arrow-left:hover {
+    color: rgb(52, 52, 160);
+    font-size: 28px;
+    box-shadow: 3px 3px 3px rgb(221, 221, 221);
+}
+
+a {
+    text-decoration: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+pre{
+    justify-content: center;
+    display: flex;
+    font-size: 15px;
+}
