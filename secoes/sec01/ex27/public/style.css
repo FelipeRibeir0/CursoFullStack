@@ -1,0 +1,36 @@
+p,
+strong {
+    font-size: 20px;
+}
+
+p {
+    border-bottom: 1px solid black;
+    min-width: fit-content;
+    max-width: 250px;
+}
+
+pre,img {
+    margin-bottom: 20px;
+}
+
+a {
+    font-size: 40px;
+    background-color: rgba(212, 119, 119, 0.658);
+    border-radius: 10px;
+    padding: 10px;
+    color: rgb(47, 0, 156);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: rgba(243, 161, 161, 0.658);
+    color: blueviolet;
+}
+
+img{
+    width: 130px;
+    height: 130px;
+    display: block;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+}
