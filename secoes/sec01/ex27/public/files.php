@@ -14,7 +14,6 @@
 
     if (str_starts_with($_FILES['imagemDoUsuario']['type'], "image/")) {
         $arquivoTemporario = $_FILES['imagemDoUsuario']['tmp_name'];
-        $tipoMIME = mime_content_type($_FILES['imagemDoUsuario']['tmp_name']);
         echo "<p>O arquivo é uma imagem.</p>";
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,7 +22,7 @@
             echo '</pre>';
 
             echo '<h2>Imagem carregada:</h2>';
-            echo '<img src="data:' . $tipoMIME . ';base64,' . base64_encode(file_get_contents($arquivoTemporario)) . '">';
+            echo '<img src="data:' . $arquivoTemporario . ';base64,' . base64_encode(file_get_contents($arquivoTemporario)) . '">';
         }
     } else {
         echo "<strong>O arquivo não é uma imagem.</strong>";

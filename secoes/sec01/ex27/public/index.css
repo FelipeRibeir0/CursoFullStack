@@ -1,0 +1,38 @@
+form {
+    background-color: azure;
+    border: 1px solid lightblue;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: darkcyan;
+    font-weight: bold;
+    align-self: center;
+}
+
+input,
+button {
+    align-self: center;
+    cursor: pointer;
+}
+
+input {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    width: 80%;
+    border-radius: 8px;
+}
