@@ -18,5 +18,14 @@ function request(){
     return $_GET;
 
 }
+function redirect($target)
+{
+    return header("location:../../?page={$target}");
+}
+
+function redirectToHome()
+{
+    return header("location:../../");
+}
 
 ?>

@@ -4,9 +4,7 @@ require "../../../bootstrap.php";
 
 if(isEmpty()){
     flash("message","Preencha todos os campos","danger");
-
-
-    header("location:../../?page=contato");
+    return redirect("contato");
 }
 
 $validate = validate([
@@ -16,6 +14,20 @@ $validate = validate([
 'message' => 's'
 ]);
 
-dd($validate->name);
+$data = 
+[
+    'nomeQuem' => $validate->nome,
+    'quem' => $validate->email,
+    'para' => 'fecribeiro2003@gmail.com',
+    'mensagem' => $validate->message,
+    'assunto' => $validate->subject,
+];
+
+if(send($data))
+{
+    flash('message','Email enviado com sucesso','success');
+    return redirect("contato");
+
+};
 
 ?>

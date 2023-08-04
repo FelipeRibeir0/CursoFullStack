@@ -1,3 +1,22 @@
 body{
     background-color: rgb(233, 233, 233);
 }
+p{
+    margin-bottom: 5px;
+}
+.alert{
+    margin-top: 5px;
+    margin-bottom: 0;
+    justify-content: center;
+}
+.fa{
+    margin-right: 5px;
+}
+#floatingTextarea
+{
+    height: 100px!important;
+}
+
+.btnEnviar{
+    margin-bottom: 0!important;
+}
