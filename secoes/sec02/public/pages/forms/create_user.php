@@ -21,4 +21,6 @@ if($cadastrado){
     return redirect('create_user');
 }
 
+flash('message','Erro ao cadastrar');
+redirect('create_user');
 ?>
