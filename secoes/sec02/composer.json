@@ -8,7 +8,9 @@
             "app/functions/pages.php",
             "app/functions/validate.php",
             "app/functions/flash.php",
-            "app/functions/email.php"
+            "app/functions/email.php",
+            "app/functions/database.php"
+
         ]
     }
 }
