@@ -1,6 +1,10 @@
 body{
     background-color: rgb(233, 233, 233);
 }
+body.dark {
+    background-color: black;
+    color: white;
+}
 p{
     margin-bottom: 5px;
 }
@@ -19,4 +23,7 @@ p{
 
 .btnEnviar{
     margin-bottom: 0!important;
+}
+nav{
+    background-image: linear-gradient(to right, #3a0eff, #3c4863);
 }

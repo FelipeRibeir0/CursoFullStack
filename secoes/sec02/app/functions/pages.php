@@ -8,7 +8,7 @@ function load()
 
     if(!file_exists($page))
     {
-        throw new Exception('Opa, alguma coisa errada aconteceu');
+        $page = 'pages/error.php';
     }
 
 return $page;
