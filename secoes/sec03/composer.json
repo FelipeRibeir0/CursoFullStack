@@ -1,0 +1,20 @@
+{
+    "name": "fe_ri/sec03",
+    "description":"php-profissional",
+    "authors": [
+        {
+            "name": "FelipeRibeir0",
+            "email": "fecribeiro2003@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":{
+        "files":[
+            "app/helpers/constants.php",
+            "app/router/router.php"
+        ],
+        "psr-4":{
+            "app\\":"app"
+        }
+    }
+}
