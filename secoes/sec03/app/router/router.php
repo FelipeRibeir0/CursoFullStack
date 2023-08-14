@@ -1,19 +1,12 @@
 <?php
 
-function routes()
-{
-    return require 'routes.php';
-}
-
 function exactMatchUri($uri, $routes)
 {
-    if (array_key_exists($uri, $routes)) {
-        return [$uri => $routes[$uri]];
-    }
-    return [];
+    return (array_key_exists($uri, $routes)) ? [$uri => $routes[$uri]] : [];
 }
 
-function RegexMatchArrayRoutes($uri, $routes){
+function RegexMatchArrayRoutes($uri, $routes)
+{
     return array_filter(
         $routes,
         function ($value) use ($uri) {
@@ -24,22 +17,23 @@ function RegexMatchArrayRoutes($uri, $routes){
     );
 }
 
-function params($uri,$matchedUri){
-    if(!empty($matchedUri)){
+function params($uri, $matchedUri)
+{
+    if (!empty($matchedUri)) {
         $matchedToGetParams = array_keys($matchedUri)[0];
         return array_diff(
-            explode('/', ltrim($uri, '/')),
+            $uri,
             explode('/', ltrim($matchedToGetParams, '/'))
         );
     }
     return [];
 }
 
-function paramsFormat($uri, $params){
-    $uri = explode('/', ltrim($uri,'/'));
+function paramsFormat($uri, $params)
+{
     $paramsData = [];
     foreach ($params as $index => $param) {
-        $paramsData[$uri[$index-1]] = $param;
+        $paramsData[$uri[$index - 1]] = $param;
     }
     return $paramsData;
 }
@@ -48,15 +42,21 @@ function router()
 {
     $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
-    $routes = routes();
+    $routes = require 'routes.php';
+    $requestMethod = $_SERVER['REQUEST_METHOD'];
 
-    $matchedUri = exactMatchUri($uri, $routes);
+    $matchedUri = exactMatchUri($uri, $routes[$requestMethod]);
 
+    $params = [];
     if (empty($matchedUri)) {
-        $matchedUri = RegexMatchArrayRoutes($uri, $routes);
-        $params = params($uri,$matchedUri);
+        $matchedUri = RegexMatchArrayRoutes($uri, $routes[$requestMethod]);
+        $uri = explode('/', ltrim($uri, '/'));
+        $params = params($uri, $matchedUri);
         $params = paramsFormat($uri, $params);
-
-        var_dump($params);
     }
+
+    if(!empty($matchedUri)){
+        return loadController($matchedUri, $params);
+    }
+    throw new Exception("Algo deu errado");
 }
