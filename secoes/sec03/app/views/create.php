@@ -1,5 +1,8 @@
 <h2>Create</h2>
-<form action="/user/store" method="post" id="createForm">
+
+<?php echo getFlash('message')?>
+
+<form action="/user/store" method="post" id="createForm" autocomplete="off">
     <input type="text" name="firstname" placeholder="Nome">
     <?php echo getFlash('firstname')?>
 <input type="text" name="lastname" placeholder="Sobrenome">

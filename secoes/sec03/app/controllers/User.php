@@ -28,13 +28,25 @@ class User
         $validate = validate([
             'firstname' => 'required',
             'lastname' => 'required',
-            'email' => 'email|unique',
-            'password' => 'required|maxlen'
+            'email' => 'required|email|unique:users',
+            'password' => 'required|maxlen:10'
         ]);
 
         if(!$validate)
         {
             return redirect('/user/create');
         }
+
+        $validate['password'] = password_hash($validate['password'], PASSWORD_DEFAULT);
+
+        $created = create('users',$validate);
+
+        if(!$created)
+        {
+            setFlash('message','Ocorreu um erro ao cadastrar, tente novamente em alguns segundos');
+            return redirect('user/create');
+        }
+
+        return redirect('/');
     }
 }

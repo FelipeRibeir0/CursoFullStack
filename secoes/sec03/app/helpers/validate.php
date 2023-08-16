@@ -3,32 +3,43 @@
 function validate(array $validations)
 {
     $result = [];
-    foreach ($validations as $field => $validate) 
-    {
-        if(!str_contains($validate, '|'))
-        {
-            $result[$field] = $validate($field);
-
-        }else
-        {
-        }
+    $param = '';
+    foreach ($validations as $field => $validate) {
+        $result[$field] = (!str_contains($validate, '|')) ?
+            singleValidation($validate, $field, $param) :
+            multipleValidations($validate, $field, $param);
     }
-   
-    if(in_array(false,$result))
-    {
+
+    if (in_array(false, $result, true)) {
         return false;
     }
 
     return $result;
 }
 
-function required($field)
+function singleValidation($validate, $field, $param)
 {
-    if($_POST[$field] === '')
-    {
-        setFlash($field, "O campo é obrigatório");
-        return false;
+    if (str_contains($validate, ':')) {
+        [$validate, $param] = explode(':', $validate);
     }
+    return $validate($field, $param);
+}
 
-    return strip_tags($_POST[$field]);
+function multipleValidations($validate, $field, $param)
+{
+    $result = [];
+    $explodePipe = explode('|', $validate);
+    foreach ($explodePipe as $validate) {
+        if (str_contains($validate, ':')) {
+            [$validate, $param] = explode(':', $validate);
+        }
+
+        $result[$field] = $validate($field, $param);
+
+        if(isset($result[$field]) && $result[$field] === false)
+        {
+            break;
+        }
+    }
+    return $result[$field];
 }
