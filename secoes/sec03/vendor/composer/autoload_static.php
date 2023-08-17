@@ -8,10 +8,12 @@ class ComposerStaticInitabe4e87583b173e9cf700242761fa8af
 {
     public static $files = array (
         '1e9645c9a665edbbb025b2978cb7d584' => __DIR__ . '/../..' . '/app/helpers/constants.php',
+        'ce48012663cb8fb012d0e50da58da74d' => __DIR__ . '/../..' . '/app/helpers/helpers.php',
         '022fa7d84fdf892f0c1d8c527ee0b24c' => __DIR__ . '/../..' . '/app/helpers/redirect.php',
         '6e3b42419b974446e2286a76382db840' => __DIR__ . '/../..' . '/app/helpers/flash.php',
         '5387303c53176cb97b33bf05bda288b3' => __DIR__ . '/../..' . '/app/helpers/sessions.php',
         'cf216a86be29e39018690d8829e875cc' => __DIR__ . '/../..' . '/app/helpers/validate.php',
+        '2b60534fca4ae6a0b5e3a15deb7782f8' => __DIR__ . '/../..' . '/app/helpers/validations.php',
         'fd9e57c81c7b643a684a650abe8f58ad' => __DIR__ . '/../..' . '/app/router/router.php',
         '635d81a702fcdf52c9cc3bd1a5c7ec22' => __DIR__ . '/../..' . '/app/core/controller.php',
         '688198f670c0dd773613eb81934d5ac6' => __DIR__ . '/../..' . '/app/database/connect.php',
@@ -24,6 +26,10 @@ class ComposerStaticInitabe4e87583b173e9cf700242761fa8af
         array (
             'app\\' => 4,
         ),
+        'L' => 
+        array (
+            'League\\Plates\\' => 14,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -31,10 +37,32 @@ class ComposerStaticInitabe4e87583b173e9cf700242761fa8af
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'League\\Plates\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/plates/src',
+        ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'League\\Plates\\Engine' => __DIR__ . '/..' . '/league/plates/src/Engine.php',
+        'League\\Plates\\Exception\\TemplateNotFound' => __DIR__ . '/..' . '/league/plates/src/Exception/TemplateNotFound.php',
+        'League\\Plates\\Extension\\Asset' => __DIR__ . '/..' . '/league/plates/src/Extension/Asset.php',
+        'League\\Plates\\Extension\\ExtensionInterface' => __DIR__ . '/..' . '/league/plates/src/Extension/ExtensionInterface.php',
+        'League\\Plates\\Extension\\URI' => __DIR__ . '/..' . '/league/plates/src/Extension/URI.php',
+        'League\\Plates\\Template\\Data' => __DIR__ . '/..' . '/league/plates/src/Template/Data.php',
+        'League\\Plates\\Template\\Directory' => __DIR__ . '/..' . '/league/plates/src/Template/Directory.php',
+        'League\\Plates\\Template\\FileExtension' => __DIR__ . '/..' . '/league/plates/src/Template/FileExtension.php',
+        'League\\Plates\\Template\\Folder' => __DIR__ . '/..' . '/league/plates/src/Template/Folder.php',
+        'League\\Plates\\Template\\Folders' => __DIR__ . '/..' . '/league/plates/src/Template/Folders.php',
+        'League\\Plates\\Template\\Func' => __DIR__ . '/..' . '/league/plates/src/Template/Func.php',
+        'League\\Plates\\Template\\Functions' => __DIR__ . '/..' . '/league/plates/src/Template/Functions.php',
+        'League\\Plates\\Template\\Name' => __DIR__ . '/..' . '/league/plates/src/Template/Name.php',
+        'League\\Plates\\Template\\ResolveTemplatePath' => __DIR__ . '/..' . '/league/plates/src/Template/ResolveTemplatePath.php',
+        'League\\Plates\\Template\\ResolveTemplatePath\\NameAndFolderResolveTemplatePath' => __DIR__ . '/..' . '/league/plates/src/Template/ResolveTemplatePath/NameAndFolderResolveTemplatePath.php',
+        'League\\Plates\\Template\\ResolveTemplatePath\\ThemeResolveTemplatePath' => __DIR__ . '/..' . '/league/plates/src/Template/ResolveTemplatePath/ThemeResolveTemplatePath.php',
+        'League\\Plates\\Template\\Template' => __DIR__ . '/..' . '/league/plates/src/Template/Template.php',
+        'League\\Plates\\Template\\Theme' => __DIR__ . '/..' . '/league/plates/src/Template/Theme.php',
         'app\\controllers\\Home' => __DIR__ . '/../..' . '/app/controllers/Home.php',
         'app\\controllers\\Login' => __DIR__ . '/../..' . '/app/controllers/Login.php',
         'app\\controllers\\User' => __DIR__ . '/../..' . '/app/controllers/User.php',

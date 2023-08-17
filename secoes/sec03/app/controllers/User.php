@@ -11,14 +11,13 @@ class User
             return redirect('/');
         }
         $user = findBy('users','id',$params['user']);
-        var_dump($user);
-        die();
+        dd($user);
     }
 
     public function create()
     {
         return [
-            'view' => 'create.php',
+            'view' => 'create',
             'data' => ['title' => 'Create']
         ];
     }

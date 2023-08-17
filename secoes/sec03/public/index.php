@@ -20,14 +20,18 @@ try{
         throw new Exception("O índice view está faltando");
     }
     
-    if(!file_exists(VIEWS.$data['view'])){
+    if(!file_exists(VIEWS.$data['view'].'.php')){
         throw new Exception("A view {$data['view']} não existe");
     }
     
-    extract($data['data']);
-    $view = $data['view'];
+    $templates = new League\Plates\Engine(VIEWS);
 
-    require VIEWS.'master.php';
+    echo $templates->render($data['view'], $data['data']);
+
+    // extract($data['data']);
+    // $view = $data['view'];
+
+    // require VIEWS.'master.php';
 }catch(Exception $e){
 var_dump($e->getMessage());
 }
