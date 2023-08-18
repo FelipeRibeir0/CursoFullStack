@@ -18,4 +18,6 @@ return array(
     '688198f670c0dd773613eb81934d5ac6' => $baseDir . '/app/database/connect.php',
     '305d41aba07fc95b2142fb52cf63ca2b' => $baseDir . '/app/database/fetch.php',
     'ebd688dd7270f1d8c2f3ffaa98ff24f2' => $baseDir . '/app/database/create.php',
+    'ea59ee9c06fb69a07969d457c61dd16b' => $baseDir . '/app/database/update.php',
+    '2269582d9fc988cd60b6bf165e3301f9' => $baseDir . '/app/database/delete.php',
 );
