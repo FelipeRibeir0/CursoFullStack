@@ -4,6 +4,11 @@ require "bootstrap.php";
 
 try{
     $data = router();
+
+    if(isAjax())
+    {
+        die();
+    }
     
     if(!isset($data['data']))
     {
