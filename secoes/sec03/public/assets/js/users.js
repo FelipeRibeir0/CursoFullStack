@@ -1,8 +1,10 @@
 import http from './http';
 
-async function users() {
+async function users()
+{
     try {
-        const {data} = await http.get("/users");
+        const { data } = await http.get('/users')
+        console.log(data); 
     } catch (error) {
         console.log(error);
     }

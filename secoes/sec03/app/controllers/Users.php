@@ -6,7 +6,8 @@ class Users
 {
     public function index()
     {
-        echo json_encode($_SERVER);
+        $users = all('users','id, firstname, lastname');
+        echo json_encode($users);
     }
 }
 ?>
