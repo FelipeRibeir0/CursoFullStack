@@ -19,6 +19,8 @@
             "app/helpers/sessions.php",
             "app/helpers/validate.php",
             "app/helpers/validations.php",
+            "app/helpers/old.php",
+            "app/helpers/csrf.php",
             "app/router/router.php",
             "app/core/controller.php",
             "app/database/connect.php",
@@ -26,7 +28,6 @@
             "app/database/create.php",
             "app/database/update.php",
             "app/database/delete.php"
-
         ],
         "psr-4":{
             "app\\":"app"

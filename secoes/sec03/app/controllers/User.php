@@ -29,7 +29,8 @@ class User
             'lastname' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|maxlen:10'
-        ]);
+        ],
+    persistInputs:true, checkCsrf:true );
 
         if(!$validate)
         {
