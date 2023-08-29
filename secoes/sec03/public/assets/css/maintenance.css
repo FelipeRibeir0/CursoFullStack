@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+
+body { 
+    text-align: center;
+    padding: 0;
+    background-color: #e42d24;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.container
+{
+    width: 80vw;
+    height: 80vh;
+    border: none;
+}
+
+section { 
+    width: 700px;
+    padding: 50px;
+    margin: 0 auto;
+    color: #fff;
+}
+a {
+    color: #fff;
+    font-weight: bold;
+}
+a:hover {
+    text-decoration: none;
+}
+svg { 
+    width: 75px;
+    margin-top: 20px;
+}
+
+#header
+{
+    display:none
+}

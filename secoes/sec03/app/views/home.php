@@ -15,3 +15,5 @@
         <li><?php echo $user->firstname ?> | <a href="/user/<?php echo $user->id ?>">Detalhes</a></li>
     <?php endforeach ?>
 </ul>
+
+<script src="app.js"></script>

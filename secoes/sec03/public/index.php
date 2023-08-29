@@ -2,6 +2,7 @@
 
 require "bootstrap.php";
 try{
+
     $data = router();
 
     if(isAjax())
@@ -32,10 +33,6 @@ try{
 
     echo $templates->render($data['view'], $data['data']);
 
-    // extract($data['data']);
-    // $view = $data['view'];
-
-    // require VIEWS.'master.php';
 }catch(Exception $e){
 var_dump($e->getMessage());
 }
