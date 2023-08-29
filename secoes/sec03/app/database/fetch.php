@@ -130,6 +130,21 @@ function whereThreeParams(array $args): array
     return [$field, $operator, $value, $typeWhere];
 }
 
+function whereIn(string $field, array $data)
+{
+    global $query;
+
+    if(isset($query['where']))
+    {
+        throw new Exception("Não pode chamar o Where e o whereIn");
+    }
+
+    $query['where'] = true;
+    $query['sql'] = "{$query['sql']} WHERE {$field} in (".'\''.implode('\',\'',$data).'\''.')';
+
+}
+
+
 function search(array $search)
 {
     global $query;

@@ -16,6 +16,7 @@ class Home
         }
 
         $users = execute();
+
         return [
             'view' => 'home',
             'data' => ['title' => 'Home', 'users' => $users]
