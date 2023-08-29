@@ -5,6 +5,7 @@ $query = [];
 function read(string $table, string $fields = '*')
 {
     global $query;
+    $query = [];
 
     $query['read'] = true;
     $query['execute'] = [];
@@ -16,8 +17,7 @@ function limit(string|int $limit)
     global $query;
     $query['limit'] = true;
 
-    if(isset($query['paginate']))
-    {
+    if (isset($query['paginate'])) {
         throw new Exception("O LIMIT não pode vir após a Paginação");
     }
 
@@ -28,13 +28,11 @@ function order(string $by, string $order = "ASC")
 {
     global $query;
 
-    if(isset($query['limit']))
-    {
+    if (isset($query['limit'])) {
         throw new Exception("O ORDER não pode vir após o LIMIT");
     }
 
-    if(isset($query['paginate']))
-    {
+    if (isset($query['paginate'])) {
         throw new Exception("O ORDER não pode vir após a Paginação");
     }
 
@@ -45,8 +43,7 @@ function paginate(string|int $perPage = 10)
 {
     global $query;
 
-    if(isset($query['limit']))
-    {
+    if (isset($query['limit'])) {
         throw new Exception("A paginação não pode ser chamada com o LIMIT");
     }
 }
@@ -57,25 +54,21 @@ function where()
     $args = func_get_args();
     $numArgs = func_num_args();
 
-    if(!isset($query['read']))
-    {
+    if (!isset($query['read'])) {
         throw new Exception("Precisa executar o Read antes do Where");
     }
 
-    if($numArgs < 2 || $numArgs > 3)
-    {
+    if ($numArgs < 2 || $numArgs > 3) {
         throw new Exception("O Where precisa de 2 ou 3 parâmetros");
     }
 
-    if($numArgs == 2)
-    {
+    if ($numArgs == 2) {
         $field = $args[0];
         $operator = "=";
         $value = $args[1];
     }
 
-    if($numArgs == 3)
-    {
+    if ($numArgs == 3) {
         $field = $args[0];
         $operator = $args[1];
         $value = $args[2];
@@ -84,7 +77,6 @@ function where()
     $query['where'] = true;
     $query['execute'] = [...$query['execute'], $field => $value];
     $query['sql'] = "{$query['sql']} WHERE {$field} {$operator} :{$field}";
-
 }
 
 function orWhere()
@@ -93,18 +85,15 @@ function orWhere()
     $args = func_get_args();
     $numArgs = func_num_args();
 
-    if(!isset($query['read']))
-    {
+    if (!isset($query['read'])) {
         throw new Exception("Precisa executar o Read antes do Where");
     }
 
-    if(!isset($query['where']))
-    {
+    if (!isset($query['where'])) {
         throw new Exception("Precisa executar o Where antes do orWhere");
     }
 
-    if($numArgs < 2 || $numArgs > 4)
-    {
+    if ($numArgs < 2 || $numArgs > 4) {
         throw new Exception("O orWhere precisa de 2 até 4 parâmetros");
     }
 
@@ -121,7 +110,8 @@ function orWhere()
     $query['sql'] = "{$query['sql']} {$typeWhere} {$field} {$operator} :{$field}";
 }
 
-function whereTwoParams(array $args):array {
+function whereTwoParams(array $args): array
+{
     $field = $args[0];
     $operator = "=";
     $value = $args[1];
@@ -129,27 +119,75 @@ function whereTwoParams(array $args):array {
 
     return [$field, $operator, $value, $typeWhere];
 }
-function whereThreeParams(array $args):array {
-    $operators = ['=','<', '>','!==','<=',">="];
+function whereThreeParams(array $args): array
+{
+    $operators = ['=', '<', '>', '!==', '<=', ">="];
     $field = $args[0];
-    $operator = in_array($args[1],$operators) ? $args[1] : '=';
-    $value = in_array($args[1],$operators) ? $args[2] : $args[1];
+    $operator = in_array($args[1], $operators) ? $args[1] : '=';
+    $value = in_array($args[1], $operators) ? $args[2] : $args[1];
     $typeWhere = $args[2] == 'AND' ? 'AND' : 'OR';
 
     return [$field, $operator, $value, $typeWhere];
-
 }
 
-function execute()
-{    
+function search(array $search)
+{
     global $query;
 
-    $connect = connect();
-    
-    $prepare = $connect->prepare($query['sql']);
-    $prepare->execute($query['execute'] ?? []);
+    if(isset($query['where']))
+    {
+        throw new Exception("Não pode chamar o Where no Search");
+    }
 
-    return $prepare->fetchAll();
+    if(array_is_list($search))
+    {
+        throw new Exception("Na busca o Array tem que ser associativo");
+    }
+
+    $sql = "{$query['sql']} WHERE ";
+
+    $execute = [];
+    foreach ($search as $field => $searched) {
+        $sql .= "{$field} LIKE :{$field} OR ";
+        $execute[$field] = "%{$searched}%";
+    }
+
+    $sql = rtrim($sql, ' OR ');
+
+    $query['sql'] = $sql;
+    $query['execute'] = $execute;
+}
+
+function execute(bool $isFetchAll = true, bool $rowCount = false)
+{
+    try {
+        global $query;
+
+        $connect = connect();
+
+        if(!isset($query['sql']))
+        {
+            throw new Exception("Precisa ter o SQL para executar a Query");
+        }
+
+        $prepare = $connect->prepare($query['sql']);
+        $prepare->execute($query['execute'] ?? []);
+
+        if($rowCount)
+        {
+            return $prepare->rowCount();
+        }
+
+        return $isFetchAll ? $prepare->fetchAll() : $prepare->fetch();
+    } catch (Exception $e) {
+        $error = [
+            'file' => $e->getFile(),
+            'line' => $e->getLine(),
+            'message' => $e->getMessage(),
+            'sql' => $query['sql']
+        ];
+        getMsg($error);
+    }
 }
 
 // Query Completa
