@@ -1,5 +1,8 @@
 <?php
 // Query builder
+
+use Doctrine\Inflector\InflectorFactory;
+
 $query = [];
 
 function read(string $table, string $fields = '*')
@@ -8,6 +11,7 @@ function read(string $table, string $fields = '*')
     $query = [];
 
     $query['read'] = true;
+    $query['table'] = $table;
     $query['execute'] = [];
     $query['sql'] = "SELECT {$fields} FROM {$table}";
 }
@@ -46,11 +50,30 @@ function paginate(string|int $perPage = 10)
     if (isset($query['limit'])) {
         throw new Exception("A paginação não pode ser chamada com o LIMIT");
     }
+
+    $rowCount = execute(rowCount:true);
+
+    $page = filter_input(INPUT_GET,'page',FILTER_SANITIZE_STRING);
+
+    $page = $page ?? 1;
+
+    $query['currentPage'] = (int) $page;
+    $query['pageCount'] = (int) ceil($rowCount / $perPage);
+    $offset = ($page - 1 * $perPage);
+
+    $query['paginate'] = true;
+    $query['sql'] = "{$query['sql']} LIMIT {$perPage} offset {$offset}";
 }
 
 function where()
 {
     global $query;
+
+    if(isset($query['where']))
+    {
+        throw new Exception("Verifique quantos Wheres estão sendo chamados na criação da sua Query");
+    }
+
     $args = func_get_args();
     $numArgs = func_num_args();
 
@@ -144,6 +167,36 @@ function whereIn(string $field, array $data)
 
 }
 
+function fieldFK(string $table, string $field){
+    $inflector = InflectorFactory::create()->build();
+    $tableToSingular = $inflector->singularize($table);
+
+    return $tableToSingular.ucfirst($field);
+}
+
+function tableJoin(string $table, string $fieldFK, string $typeJoin = 'INNER'){
+    global $query;
+
+    if(isset($query['where']))
+    {
+        throw new Exception("Não é permitido colocar o Where antes do Join");
+    }
+
+    $fkToJoin = fieldFK($query['table'], $fieldFK);
+    $query['sql'] = "{$query['sql']} {$typeJoin} JOIN {$table} ON {$table}.{$fkToJoin} = {$query['table']}.{$fieldFK}";
+}
+
+function tableJoinWithFK(string $table, string $fieldFK, string $typeJoin = 'INNER'){
+    global $query;
+
+    if(isset($query['where']))
+    {
+        throw new Exception("Não é permitido colocar o Where antes do Join");
+    }
+
+    $fkToJoin = fieldFK($table, $fieldFK);
+    $query['sql'] = "{$query['sql']} {$typeJoin} JOIN {$table} ON {$table}.{$fieldFK} = {$query['table']}.{$fkToJoin}";
+}
 
 function search(array $search)
 {
