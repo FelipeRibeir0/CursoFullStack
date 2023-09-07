@@ -58,11 +58,47 @@ function paginate(string|int $perPage = 10)
     $page = $page ?? 1;
 
     $query['currentPage'] = (int) $page;
-    $query['pageCount'] = (int) ceil($rowCount / $perPage);
-    $offset = ($page - 1 * $perPage);
+    $query['pageCount'] = (int)ceil($rowCount / $perPage);
+    $offset = ($page - 1) * $perPage;
 
     $query['paginate'] = true;
     $query['sql'] = "{$query['sql']} LIMIT {$perPage} offset {$offset}";
+}
+
+function render()
+{
+
+    global $query;
+
+$pageCount = $query['pageCount'];
+$currentPage = $query['currentPage'];
+
+$links = '<ul class="pagination justify-content-center">';
+
+if($currentPage > 1)
+{
+    $previous = $currentPage - 1;
+    $links .= "<li class='page-item'><a class='page-link' href='?page=1'>Primeira</a></li>";
+    $links .= "<li class='page-item'><a class='page-link' href='?page={$previous}'>Anterior</a></li>";
+}
+
+$class = '';
+for ($i=1; $i <= $pageCount; $i++) {
+    $class = $currentPage == $i ? 'active' : '';
+    $page = "?page={$i}";
+    $links .= "<li class='page-item {$class}'><a class='page-link' href='{$page}'>{$i}</a></li>";
+}
+
+if($currentPage < $pageCount)
+{
+    $next = $currentPage + 1;
+    $links .= "<li class='page-item'><a class='page-link' href='?page={$next}'>Próxima</a></li>";
+    $links .= "<li class='page-item'><a class='page-link' href='?page={$pageCount}'>Última</a></li>";
+}
+
+$links .= '</ul>';
+
+return $links;
 }
 
 function where()

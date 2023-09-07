@@ -12,4 +12,4 @@
     <?php endforeach ?>
 </ul>
 
-<script src="app.js"></script>
+<?php echo $links ?>
