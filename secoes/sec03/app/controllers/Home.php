@@ -9,11 +9,13 @@ class Home
         $search = filter_input(INPUT_GET,'s', FILTER_SANITIZE_STRING);
 
         read('users','id, firstname, lastname');
-        paginate(2);
-        // if($search)
-        // {
-        //     search(['firstname' => $search, 'lastname' => $search]);
-        // }
+        
+        if($search)
+        {
+            search(['firstname' => $search, 'lastname' => $search]);
+        }
+
+        paginate(1);
 
         $users = execute();
 

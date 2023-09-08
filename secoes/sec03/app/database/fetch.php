@@ -78,22 +78,29 @@ $links = '<ul class="pagination justify-content-center">';
 if($currentPage > 1)
 {
     $previous = $currentPage - 1;
-    $links .= "<li class='page-item'><a class='page-link' href='?page=1'>Primeira</a></li>";
-    $links .= "<li class='page-item'><a class='page-link' href='?page={$previous}'>Anterior</a></li>";
+    $linkPage = http_build_query(array_merge($_GET, ['page' => $previous]));
+    $first = http_build_query(array_merge($_GET, ['page' => 1]));
+
+    $links .= "<li class='page-item'><a class='page-link' href='?{$first}'>Primeira</a></li>";
+    $links .= "<li class='page-item'><a class='page-link' href='?{$linkPage}'>Anterior</a></li>";
 }
 
 $class = '';
 for ($i=1; $i <= $pageCount; $i++) {
     $class = $currentPage == $i ? 'active' : '';
-    $page = "?page={$i}";
-    $links .= "<li class='page-item {$class}'><a class='page-link' href='{$page}'>{$i}</a></li>";
+    $linkPage = http_build_query(array_merge($_GET, ['page' => $i]));
+
+    $links .= "<li class='page-item {$class}'><a class='page-link' href='?{$linkPage}'>{$i}</a></li>";
 }
 
 if($currentPage < $pageCount)
 {
     $next = $currentPage + 1;
-    $links .= "<li class='page-item'><a class='page-link' href='?page={$next}'>Próxima</a></li>";
-    $links .= "<li class='page-item'><a class='page-link' href='?page={$pageCount}'>Última</a></li>";
+    $linkPage = http_build_query(array_merge($_GET, ['page' => $next]));
+    $last = http_build_query(array_merge($_GET, ['page' => $pageCount]));
+
+    $links .= "<li class='page-item'><a class='page-link' href='?{$linkPage}'>Próxima</a></li>";
+    $links .= "<li class='page-item'><a class='page-link' href='?{$last}'>Última</a></li>";
 }
 
 $links .= '</ul>';
@@ -184,7 +191,7 @@ function whereThreeParams(array $args): array
     $field = $args[0];
     $operator = in_array($args[1], $operators) ? $args[1] : '=';
     $value = in_array($args[1], $operators) ? $args[2] : $args[1];
-    $typeWhere = $args[2] == 'AND' ? 'AND' : 'OR';
+    $typeWhere = $args[2] === 'AND' ? 'AND' : 'OR';
 
     return [$field, $operator, $value, $typeWhere];
 }
