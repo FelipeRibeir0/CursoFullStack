@@ -7,7 +7,7 @@
 </form>
 
 <ul id="user_home">
-    <?php foreach ($users as $user) : ?>
+    <?php foreach ($users->rows as $user) : ?>
         <li><?php echo $user->firstname ?> | <a href="/user/<?php echo $user->id ?>">Detalhes</a></li>
     <?php endforeach ?>
 </ul>
