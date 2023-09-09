@@ -44,7 +44,7 @@ function multipleValidations($validate, $field, $param)
 
         $result[$field] = $validate($field, $param);
 
-        if (isset($result[$field]) && $result[$field] === false) {
+        if ($result[$field] == false || $result[$field] == null) {
             break;
         }
     }

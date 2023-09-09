@@ -7,7 +7,7 @@ function required($field)
         return false;
     }
 
-    return strip_tags($_POST[$field]);;
+    return strip_tags($_POST[$field]);
 }
 
 function email($field)
@@ -19,7 +19,7 @@ function email($field)
         return false;
     }
 
-    return strip_tags($_POST[$field]);;
+    return strip_tags($_POST[$field]);
 }
 
 function unique($field, $param)
@@ -44,4 +44,12 @@ function maxlen($field, $param)
     return $data;
 }
 
+function nullable($field)
+{
+    $data = strip_tags($_POST[$field]);
+    if ($data == '') {
+        return null;
+    }
+    return $data;
+}
 ?>
