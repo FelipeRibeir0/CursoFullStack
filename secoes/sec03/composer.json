@@ -10,19 +10,21 @@
     "require": {
         "league/plates": "^3.5",
         "vlucas/phpdotenv": "^5.5",
-        "doctrine/inflector": "^2.0"
+        "doctrine/inflector": "^2.0",
+        "phpmailer/phpmailer": "^6.8"
     },
     "autoload":{
         "files":[
             "app/helpers/constants.php",
-            "app/helpers/helpers.php",
-            "app/helpers/redirect.php",
+            "app/helpers/csrf.php",
+            "app/helpers/email.php",
             "app/helpers/flash.php",
+            "app/helpers/helpers.php",
+            "app/helpers/old.php",
+            "app/helpers/redirect.php",
             "app/helpers/sessions.php",
             "app/helpers/validate.php",
             "app/helpers/validations.php",
-            "app/helpers/old.php",
-            "app/helpers/csrf.php",
             "app/router/router.php",
             "app/core/controller.php",
             "app/database/connect.php",
