@@ -28,7 +28,7 @@ class User
             'firstname' => 'required',
             'lastname' => 'nullable',
             'email' => 'required|email|unique:users',
-            'password' => 'maxlen:10|required'
+            'password' => 'required|maxlen:10'
         ],
     persistInputs:true, checkCsrf:true );
 

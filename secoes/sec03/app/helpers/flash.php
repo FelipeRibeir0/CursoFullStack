@@ -8,14 +8,14 @@ function setFlash($index, $message)
     }
 }
 
-function getFlash($index, $style = "color:red")
+function getFlash($index, $style = "color:#ea868f")
 {
     if(isset($_SESSION['flash'][$index]))
     {
         $flash = $_SESSION['flash'][$index];
         unset($_SESSION['flash'][$index]);
 
-        return "<span style={$style}>{$flash}</span>";
+        return "<span id='flashMessage' style={$style}>{$flash}</span>";
     }
 }
 

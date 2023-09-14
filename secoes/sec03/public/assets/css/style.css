@@ -15,10 +15,8 @@ body {
 
 .container {
     margin: auto;
-    width: 50%;
     border: 3px solid var(--aquamarine);
-    padding: 10px;
-    height: 85vh;
+    height: 70vh;
 }
 
 .bg-custom {
@@ -32,6 +30,10 @@ body {
     margin-left: 10px;
     border-radius: 50px;
     text-align: center;
+}
+
+#helloMessageUser{
+color: var(--mediumslateblue);
 }
 
 ul#user_home {
@@ -56,6 +58,7 @@ ul#user_home li {
     border-radius: 10px;
     width: 50%;
     height: 80%;
+    border: 2px var(--yellow) solid;
 }
 
 #createForm input,
@@ -93,4 +96,11 @@ h2 {
     display: flex;
     margin: auto;
     justify-content: center;
+}
+
+#flashMessage{
+    background-color: #2c0b0e;
+    padding: 0px 10px;
+    border-radius: 20px;
+    border: 2px #842029 solid;
 }
