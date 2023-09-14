@@ -15,7 +15,7 @@ class Home
             search(['firstname' => $search, 'lastname' => $search]);
         }
 
-        paginate(1);
+        paginate(5);
 
         $users = execute();
 

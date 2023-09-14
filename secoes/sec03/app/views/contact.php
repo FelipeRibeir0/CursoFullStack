@@ -1,6 +1,6 @@
 <?php $this->layout('master', ['title' => $title]) ?>
 
-<h2>Contato</h2>
+<h2>Contact</h2>
 
 <form action="/contact" method="post" id="form-box" autocomplete="off">
 

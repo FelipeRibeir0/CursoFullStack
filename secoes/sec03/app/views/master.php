@@ -12,9 +12,7 @@
 </head>
 
 <body>
-  <div id="header">
     <?= $this->insert('partials/header') ?>
-  </div>
   <div class="container">
     <?= $this->section('content') ?>
   </div>

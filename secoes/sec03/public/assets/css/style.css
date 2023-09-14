@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 
-html,
+:root {
+    --mediumpurple: #937DFF;
+    --mediumslateblue: #7D63FF;
+    --aquamarine: #70FFBF;
+    --lighttomato: #FFA596;
+    --yellow: #FFEC63;
+}
+
+
 body {
     font-family: 'PT Sans', sans-serif;
 }
@@ -8,30 +16,22 @@ body {
 .container {
     margin: auto;
     width: 50%;
-    border: 3px solid green;
+    border: 3px solid var(--aquamarine);
     padding: 10px;
+    height: 85vh;
 }
 
-#header {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
-
-ul#menu_list {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    justify-content: space-between;
-}
-
-ul#menu_list li {
-    margin-right: 15px;
+.bg-custom {
+    background-image: linear-gradient(to right, var(--mediumslateblue), var(--mediumpurple), var(--aquamarine));
+    margin-bottom: 10px;
 }
 
 #status_login {
-    background-color: #efefef;
+    background-color: var(--yellow);
+    padding: 5px 20px;
+    margin-left: 10px;
+    border-radius: 50px;
+    text-align: center;
 }
 
 ul#user_home {
@@ -40,7 +40,7 @@ ul#user_home {
 }
 
 ul#user_home li {
-    background-color: rgba(127, 255, 212, 0.226);
+    background-color: var(--aquamarine);
     padding: 5px;
     margin-bottom: 3px;
     border-radius: 25px;
@@ -51,35 +51,37 @@ ul#user_home li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(255, 99, 71, 0.37);
-    padding: 5px;
-    color: white;
+    justify-content: center;
+    background-color: var(--lighttomato);
     border-radius: 10px;
     width: 50%;
+    height: 80%;
 }
 
 #createForm input,
-#form-box input, #form-box textarea {
+#form-box input,
+#form-box textarea {
     width: 300px;
     margin: 5px 0 5px 0;
     border-radius: 5px;
     border: 1px solid black
 }
 
-form>button {
+#createForm > button,
+#form-box > button {
     width: 150px;
     height: 25px;
     border-radius: 5px;
     border: 1px solid black;
-    background-color: aqua;
+    background-color: var(--mediumpurple);
     font-weight: bolder;
     margin: 5px 0px;
+    color: white;
 }
 
 #createForm button:hover,
 #form-box button:hover {
-    background-color: rgb(0, 179, 179);
-    color: white;
+    background-color: var(--mediumslateblue);
     cursor: pointer;
 }
 
