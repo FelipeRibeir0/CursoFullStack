@@ -22,6 +22,13 @@ class User
         ];
     }
 
+    public function edit()
+    {
+        return [
+            'view' => 'edit',
+            'data' => ['title' => 'Edit']
+        ];
+    }
     public function store()
     {  
         $validate = validate([
