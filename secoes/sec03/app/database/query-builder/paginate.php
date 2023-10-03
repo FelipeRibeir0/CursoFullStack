@@ -10,7 +10,7 @@ function paginate(string|int $perPage = 10)
 
     $rowCount = execute(rowCount:true);
 
-    $page = filter_input(INPUT_GET,'page',FILTER_SANITIZE_STRING);
+    $page = filter_input(INPUT_GET,'page');
 
     $page = $page ?? 1;
 
