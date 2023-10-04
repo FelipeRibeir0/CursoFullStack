@@ -1,9 +1,8 @@
-<?php 
+<?php
 
 function update(string $table, array $fields, array $where)
 {
-    if(array_is_list($fields) || array_is_list($where))
-    {
+    if (array_is_list($fields) || array_is_list($where)) {
         throw new Exception('O Array tem que ser Associativo no update');
     }
 
@@ -12,14 +11,14 @@ function update(string $table, array $fields, array $where)
     $sql = "UPDATE {$table} SET ";
 
     foreach (array_keys($fields) as $field) {
-        $sql .= "{$field} = :{$field}, ";
+        $sql .= "$field = :{$field}, ";
     }
-    
+
     $sql = trim($sql, ", ");
-    
+
     $whereFields = array_keys($where);
 
-    $sql .= "WHERE {$whereFields[0]} = :{$whereFields[0]}";
+    $sql .= " WHERE {$whereFields[0]} = :{$whereFields[0]}";
 
     $data = array_merge($fields, $where);
 
@@ -28,5 +27,3 @@ function update(string $table, array $fields, array $where)
 
     return $prepare->rowCount();
 }
-
-?>

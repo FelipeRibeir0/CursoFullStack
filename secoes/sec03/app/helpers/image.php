@@ -95,5 +95,8 @@ function upload(int $newWidth, int $newHeight, string $type = 'resize', string $
         );
     }
 
-    $saveImage($dst, $folder . DIRECTORY_SEPARATOR . rand() . '.' . $extension);
+    $path = $folder . DIRECTORY_SEPARATOR . rand() . '.' . $extension;
+    $saveImage($dst, $path);
+
+    return $path;
 }
