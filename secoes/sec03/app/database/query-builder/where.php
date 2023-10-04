@@ -1,11 +1,10 @@
-<?php 
+<?php
 
 function where()
 {
     global $query;
 
-    if(isset($query['where']))
-    {
+    if (isset($query['where'])) {
         throw new Exception("Verifique quantos Wheres estão sendo chamados na criação da sua Query");
     }
 
@@ -32,9 +31,15 @@ function where()
         $value = $args[2];
     }
 
+    $fieldWhere = $field;
+
+    if (str_contains($field, '.')) {
+        [, $fieldWhere] = explode('.', $field);
+    }
+
     $query['where'] = true;
-    $query['execute'] = [...$query['execute'], $field => $value];
-    $query['sql'] = "{$query['sql']} WHERE {$field} {$operator} :{$field}";
+    $query['execute'] = [...$query['execute'], $fieldWhere => $value];
+    $query['sql'] = "{$query['sql']} WHERE {$field} {$operator} :{$fieldWhere}";
 }
 
 function orWhere()
@@ -92,14 +97,10 @@ function whereIn(string $field, array $data)
 {
     global $query;
 
-    if(isset($query['where']))
-    {
+    if (isset($query['where'])) {
         throw new Exception("Não pode chamar o Where e o whereIn");
     }
 
     $query['where'] = true;
-    $query['sql'] = "{$query['sql']} WHERE {$field} in (".'\''.implode('\',\'',$data).'\''.')';
-
+    $query['sql'] = "{$query['sql']} WHERE {$field} in (" . '\'' . implode('\',\'', $data) . '\'' . ')';
 }
-
-?>
