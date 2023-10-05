@@ -37,6 +37,8 @@ class Login
             return setMessageAndRedirect('message', 'Usuário ou senha estão incorreto', '/login');
         }
 
+        unset($user->password);
+
         $_SESSION[LOGGED] = $user;
         return redirect('/');
     }
