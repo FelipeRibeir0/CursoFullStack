@@ -71,7 +71,7 @@ class User
 
     public function update($args)
     {
-        if (!isset($args['user'])) {
+        if (!isset($args['user']) || $args['user'] !== user()->id) {
             return redirect('/');
         }
 
@@ -79,11 +79,15 @@ class User
             [
                 'firstname' => 'required',
                 'lastname' => 'required',
-                'email' => 'required|email'
+                'email' => 'required|email|uniqueUpdate:users,id=' . $args['user']
             ]
         );
 
-        $updated = update('users', $validated, ['id' => $args['user']]);
+        if (!$validated) {
+            return redirect('/user/edit/profile');
+        }
+
+        $updated = update('users', $validated, ['id' => user()->id]);
 
         if ($updated) {
             return setMessageAndRedirect('updated_success', 'Atualizado com sucesso', '/user/edit/profile');
