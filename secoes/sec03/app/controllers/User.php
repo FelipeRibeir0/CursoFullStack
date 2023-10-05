@@ -29,7 +29,7 @@ class User
             redirect('/');
         }
 
-        read('users', 'users.id, firstname, lastname, password, path');
+        read('users', 'users.id, firstname, lastname, email, password, path');
         tableJoin('photos', 'id', 'left');
         where('users.id', user()->id);
 
@@ -67,5 +67,28 @@ class User
         }
 
         return redirect('/');
+    }
+
+    public function update($args)
+    {
+        if (!isset($args['user'])) {
+            return redirect('/');
+        }
+
+        $validated = validate(
+            [
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'email' => 'required|email'
+            ]
+        );
+
+        $updated = update('users', $validated, ['id' => $args['user']]);
+
+        if ($updated) {
+            return setMessageAndRedirect('updated_success', 'Atualizado com sucesso', '/user/edit/profile');
+        } else {
+            return setMessageAndRedirect('updated_error', 'Ocorreu um erro ao atualizar', '/user/edit/profile');
+        }
     }
 }
