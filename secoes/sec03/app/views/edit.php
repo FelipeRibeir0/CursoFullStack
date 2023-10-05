@@ -16,9 +16,21 @@
 <?php if ($user->path) : ?>
     <img src="/<?php echo $user->path; ?>" alt="profile image" class="rounded-circle" width="250" height="240">
 <?php endif ?>
-<form action="/user/profile/update" method="post"></form>
 
 <hr>
+
+<form action="/password/user/<?php echo $user->id ?>" method="post">
+
+    <?php echo getCsrf() ?>
+    <input type="text" name="password">
+    <?php echo getFlash('password') ?>
+    <input type="text" name="password_confirmation">
+    <?php echo getFlash('password_confirmation') ?>
+    <button type="submit">Atualizar</button>
+</form>
+
+<hr>
+
 <?php echo getFlash('upload_error') ?>
 <?php echo getFlash('upload_success', 'color:green') ?>
 

@@ -71,7 +71,7 @@ class User
 
     public function update($args)
     {
-        if (!isset($args['user']) || $args['user'] !== user()->id) {
+        if (!isset($args['user']) || $args['user'] != user()->id) {
             return redirect('/');
         }
 
@@ -91,8 +91,7 @@ class User
 
         if ($updated) {
             return setMessageAndRedirect('updated_success', 'Atualizado com sucesso', '/user/edit/profile');
-        } else {
-            return setMessageAndRedirect('updated_error', 'Ocorreu um erro ao atualizar', '/user/edit/profile');
         }
+        setMessageAndRedirect('updated_error', 'Ocorreu um erro ao atualizar', '/user/edit/profile');
     }
 }

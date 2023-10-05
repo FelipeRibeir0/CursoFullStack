@@ -39,7 +39,7 @@ function uniqueUpdate($field, $param)
     }
 
     $table = substr($fieldToCompare, 0, strpos($fieldToCompare, ','));
-    $fieldToCompare = substr($fieldToCompare, strpos($fieldToCompare, ','), +1);
+    $fieldToCompare = substr($fieldToCompare, strpos($fieldToCompare, ',') + 1);
 
     read($table);
     where($field, $email);
@@ -83,4 +83,22 @@ function nullable($field)
         return null;
     }
     return $data;
+}
+
+function confirmed($field)
+{
+    if (!isset($_POST['password'], $_POST['password_confirmation'])) {
+        setFlash($field, "Os campos para atualizar a senha são obrigatórios");
+        return false;
+    }
+
+    $password = strip_tags($_POST['password']);
+    $password_confirmation = strip_tags($_POST['password_confirmation']);
+
+    if ($password !== $password_confirmation) {
+        setFlash($field, "Ambas senhas devem ser iguais");
+        return false;
+    }
+
+    return password_hash($password, PASSWORD_DEFAULT);
 }
