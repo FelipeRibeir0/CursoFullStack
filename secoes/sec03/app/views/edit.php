@@ -19,6 +19,8 @@
 
 <hr>
 
+<?php echo getFlash('password_success', 'color:green') ?>
+<?php echo getFlash('password_error') ?>
 <form action="/password/user/<?php echo $user->id ?>" method="post">
 
     <?php echo getCsrf() ?>
