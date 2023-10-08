@@ -1,0 +1,16 @@
+{
+    "name": "fe_ri/sec04",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "FelipeRibeir0",
+            "email": "fecribeiro2003@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

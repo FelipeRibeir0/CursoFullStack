@@ -1,10 +1,17 @@
 <?php
 
+namespace app\class;
+
 class UploadFoto
 {
     public $extension = ['png', 'jpg', 'jpeg'];
     public $file;
     public $newName;
+
+    public function __construct($file)
+    {
+        $this->file = $file;
+    }
 
     public function file($file)
     {

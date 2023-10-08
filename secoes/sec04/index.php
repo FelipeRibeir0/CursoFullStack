@@ -1,8 +1,10 @@
 <?php
 
-require "app/class/UploadFoto.php";
+use app\class\UploadFoto;
 
-$upload = new UploadFoto;
+require "vendor/autoload.php";
+
+$upload = new UploadFoto('foto.png');
 $upload->file('foto.png');
 $upload->extension();
 $upload->rename();
