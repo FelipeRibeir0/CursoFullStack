@@ -1,11 +1,8 @@
 <?php
 
-use app\class\UploadFoto;
+use app\class\UploadFile;
 
 require "vendor/autoload.php";
 
-$upload = new UploadFoto('foto.png');
-$upload->file('foto.png');
-$upload->extension();
-$upload->rename();
+$upload = new UploadFile('foto.zip');
 echo $upload->upload();
