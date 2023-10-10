@@ -4,7 +4,7 @@ namespace app\class;
 
 use app\traits\ValidationFile;
 
-class Upload
+abstract class Upload
 {
     use ValidationFile;
 
