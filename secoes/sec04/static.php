@@ -2,6 +2,8 @@
 
 use app\class\UploadFoto;
 
+require "vendor/autoload.php";
+
 # Utilizar método estático que está dentro de outras classes
 echo UploadFoto::teste();
 
@@ -23,9 +25,12 @@ abstract class Email
         return "Felipe";
     }
 
-    public static function send()
+    public static function send(string $key = 'self')
     {
-        return self::who();
+        if ($key === 'self') {
+            return self::who();
+        }
+        return static::who();
         /* 
         self:: = Utiliza o who() da mesma classe, retornando 'Felipe'
         static:: = Utiliza o who() da classe que chama o send(), que retornará o 'Teste'
