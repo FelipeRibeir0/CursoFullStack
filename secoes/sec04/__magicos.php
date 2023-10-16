@@ -40,20 +40,23 @@ class ShoppingCart
         return "Chamando o __toString";
     }
 }
+echo '<h3>Métodos Mágicos</h3>';
 
 $shoppingCart = new ShoppingCart;
 
-/* try {
-     $shoppingCart->product = "Monitor";
-     $shoppingCart->product = "Teclado";
-     $shoppingCart->product = "Mouse";
-     $shoppingCart->product;
- } catch (\Exception $e) {
-     echo $e->getMessage();
+echo '<h4>__get e __set</h4>';
+try {
+    $shoppingCart->product = "Geladeira";
+    $shoppingCart->product = "Microondas";
+    $shoppingCart->product = "Fogão";
+    $shoppingCart->product;
+} catch (\Exception $e) {
+    echo $e->getMessage();
 }
+echo '<h4>Utilizando __call</h4>';
 
 $shoppingCart->add(['Monitor', 'Teclado', 'Mouse', 'Geladeira']);
-$shoppingCart->products();
-*/
+$shoppingCart->getProducts();
 
+echo '<h4>__toString</h4>';
 echo $shoppingCart;
