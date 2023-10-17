@@ -4,7 +4,7 @@
 
 <head>
     <?php getBootstrap() ?>
-    <title>eitakk</title>
+    <title>Home</title>
 </head>
 
 <body>
