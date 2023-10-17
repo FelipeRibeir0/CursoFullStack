@@ -1,0 +1,29 @@
+body {
+    overflow-y: hidden;
+}
+
+code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 470px;
+    padding: 10px;
+}
+
+.code-box {
+    border: 1px solid #ccc;
+    width: 400px;
+    height: 400px;
+    resize: none;
+    outline: none;
+    font-family: monospace;
+    border-radius: 10px;
+}
+
+.code-box::-webkit-scrollbar {
+    width: 12px;
+}
+.code-box::-webkit-scrollbar-thumb {
+    background-color: #666;
+}

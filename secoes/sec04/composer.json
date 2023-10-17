@@ -1,6 +1,9 @@
 {
     "name": "fe_ri/sec04",
     "autoload": {
+        "files": [
+            "app/helpers/bootstrap.php"
+        ],
         "psr-4": {
             "app\\": "app"
         }
