@@ -101,8 +101,13 @@ require "../vendor/autoload.php";
 
     ?>
 
-    <div class="code-container" style="height: 70vh;">
-        <code>
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
             <textarea class="code-box" readonly>
             class ShoppingCart
 {
@@ -163,7 +168,7 @@ $shoppingCart->getProducts();
 echo '<h4>__toString</h4>';
 echo $shoppingCart;
         </textarea>
-        </code>
+        </div>
     </div>
 
 </body>

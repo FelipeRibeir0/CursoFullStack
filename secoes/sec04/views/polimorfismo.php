@@ -81,8 +81,15 @@ require "../vendor/autoload.php";
     $email = new SendEmail(new Swift);
     echo $email->send();
     ?>
-    <code style="height: 70vh;">
-        <textarea class="code-box" readonly>
+
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
+            <textarea class="code-box" readonly>
             interface EmailInterface
 {
     public function send();
@@ -124,7 +131,9 @@ echo $email->send();
 $email = new SendEmail(new Swift);
 echo $email->send();
         </textarea>
-    </code>
+        </div>
+    </div>
+
 </body>
 
 </html>

@@ -48,12 +48,19 @@ require "../vendor/autoload.php";
     ?>
 
     <hr>
-    <code>
-        <textarea class="code-box" readonly>
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
+            <textarea class="code-box" readonly>
     $upload = new UploadFile('arquivo.zip');
     echo $upload->upload();
         </textarea>
-    </code>
+        </div>
+    </div>
 </body>
 
 </html>

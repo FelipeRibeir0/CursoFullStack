@@ -84,17 +84,21 @@ require "../vendor/autoload.php";
     ?>
 
     <hr>
-    <code>
-        <textarea class="code-box" readonly>
-use app\class\UploadFoto;
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
+            <textarea class="code-box" readonly>
+            use app\class\UploadFoto;
 
 # Utilizar método estático que está dentro de outras classes
 echo UploadFoto::teste();
 
 echo UploadFoto::PROP_CONST;
 echo UploadFoto::$prop_static;
-
-print "\n\n";
 
 abstract class Email
 {
@@ -133,7 +137,10 @@ class sendEmail extends Email
 
 echo sendEmail::send();
         </textarea>
-    </code>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

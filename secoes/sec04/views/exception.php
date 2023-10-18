@@ -82,8 +82,13 @@ require "../vendor/autoload.php";
 
     ?>
 
-    <div class="code-container">
-        <code>
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
             <textarea class="code-box" readonly>
             class Controller
 {
@@ -125,7 +130,7 @@ try {
     echo $e->getMessage();
 }
         </textarea>
-        </code>
+        </div>
     </div>
 
 </body>

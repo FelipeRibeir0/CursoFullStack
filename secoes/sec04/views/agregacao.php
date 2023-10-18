@@ -60,8 +60,14 @@ require "../vendor/autoload.php";
 
     ?>
 
-    <code style="height: 20vh;">
-        <textarea class="code-box" readonly>
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
+            <textarea class="code-box" readonly>
         use app\class\agregacao\Departamento;
         use app\class\agregacao\Empresa;
         use app\class\agregacao\Funcionario;
@@ -81,7 +87,9 @@ require "../vendor/autoload.php";
 
         $minhaEmpresa->verEstrutura();
         </textarea>
-    </code>
+        </div>
+    </div>
+
 </body>
 
 </html>

@@ -50,18 +50,25 @@ require "../vendor/autoload.php";
     $carrinho->verProdutos();
 
     ?>
-    <code style="height: 50vh;">
-        <textarea class="code-box" readonly>
-    use app\class\assossiacao\Carrinho;
 
-    $carrinho = new Carrinho();
-    $carrinho->adicionarProduto("Camiseta", 20);
-    $carrinho->adicionarProduto("Calça", 30);
-    $carrinho->adicionarProduto("Tênis", 50);
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
+            <textarea class="code-box" readonly>
+            use app\class\assossiacao\Carrinho;
 
-    $carrinho->verProdutos();
+$carrinho = new Carrinho();
+$carrinho->adicionarProduto("Camiseta", 20);
+$carrinho->adicionarProduto("Calça", 30);
+$carrinho->adicionarProduto("Tênis", 50);
         </textarea>
-    </code>
+        </div>
+    </div>
+
 </body>
 
 </html>

@@ -124,8 +124,15 @@ require "../vendor/autoload.php";
     $vehicle->stop();
 
     ?>
-    <code style="height: 70vh;">
-        <textarea class="code-box" readonly>
+
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
+            <textarea class="code-box" readonly>
             interface VehicleInterface
     {
         public function start();
@@ -209,7 +216,8 @@ require "../vendor/autoload.php";
     $vehicle->start();
     $vehicle->stop();
         </textarea>
-    </code>
+        </div>
+    </div>
 </body>
 
 </html>

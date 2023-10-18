@@ -53,9 +53,16 @@ require "../vendor/autoload.php";
     $carro->ligarCarro();
     $carro->dirigir();
     ?>
-    <code style="height: 60vh;">
-        <textarea class="code-box" readonly>
-        use app\class\composicao\Carro;
+
+    <div id="container">
+        <div class="code-container">
+            <header>
+                <div class="redBall"></div>
+                <div class="yellowBall"></div>
+                <div class="greenBall"></div>
+            </header>
+            <textarea class="code-box" readonly>
+            use app\class\composicao\Carro;
         use app\class\composicao\Motor;
         use app\class\composicao\Rodas;
         use app\class\composicao\Transmissao;
@@ -70,7 +77,10 @@ require "../vendor/autoload.php";
         $carro->ligarCarro();
         $carro->dirigir();
         </textarea>
-    </code>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

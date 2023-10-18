@@ -1,29 +1,76 @@
+:root {
+    --background-color: #0f111a;
+    --header-background-color: #1d1f28;
+    --red-color: #e94b35;
+    --yellow-color: #f0f000;
+    --green-color: #1aaf5c;
+    --scrollbar-color: #666;
+}
+
 body {
     overflow-y: hidden;
 }
 
-code {
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 100vw;
     height: 470px;
-    padding: 10px;
+    position: absolute;
+    top: 70px;
 }
 
-.code-box {
-    border: 1px solid #ccc;
-    width: 400px;
+.code-container {
+    border-radius: 10px;
+    background: var(--background-color);
+    width: 631px;
     height: 400px;
+}
+
+.code-container header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--header-background-color);
+    width: 100%;
+    height: 47px;
+    gap: 10px;
+}
+
+.code-container div {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+}
+
+.redBall {
+    background-color: var(--red-color);
+}
+.yellowBall {
+    background-color: var(--yellow-color);
+}
+.greenBall {
+    background-color: var(--green-color);
+}
+
+textarea {
+    color: white;
+    background: transparent;
+    width: 100%;
+    height: 86%;
     resize: none;
     outline: none;
+    border: none;
     font-family: monospace;
     border-radius: 10px;
 }
 
-.code-box::-webkit-scrollbar {
+textarea::-webkit-scrollbar {
     width: 12px;
 }
-.code-box::-webkit-scrollbar-thumb {
-    background-color: #666;
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
 }
