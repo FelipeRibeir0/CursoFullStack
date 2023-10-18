@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Code");
+
 :root {
     --background-color: #0f111a;
     --header-background-color: #1d1f28;
@@ -63,7 +65,7 @@ textarea {
     resize: none;
     outline: none;
     border: none;
-    font-family: monospace;
+    font-family: "Fira Code", monospace;
     border-radius: 10px;
 }
 
