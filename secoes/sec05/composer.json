@@ -1,0 +1,16 @@
+{
+    "name": "fe_ri/sec05",
+    "description": "php poo secao 05 curso - clube full stack",
+    "autoload": {
+        "psr-4": {
+            "app\\class\\": "src/app/class/"
+        }
+    },
+    "authors": [
+        {
+            "name": "FelipeRibeir0",
+            "email": "fecribeiro2003@gmail.com"
+        }
+    ],
+    "require": {}
+}
