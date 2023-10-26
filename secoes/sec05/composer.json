@@ -3,7 +3,7 @@
     "description": "php poo secao 05 curso - clube full stack",
     "autoload": {
         "psr-4": {
-            "app\\class\\": "src/app/class/"
+            "app\\": "src/app/"
         }
     },
     "authors": [

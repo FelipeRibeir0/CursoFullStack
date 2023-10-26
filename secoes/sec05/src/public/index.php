@@ -1,10 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 use src\app\class\Login;
 
 require '../../vendor/autoload.php';
 
-echo "olá, PHP POO";
-
-$login = new Login;
-$login->logar();
+try {
+    $login = new Login;
+    echo $login->auth('exemplo@outlook.com', 'testei123%');
+} catch (TypeError $te) {
+    var_dump($te->getMessage());
+}

@@ -4,11 +4,9 @@ namespace src\app\class;
 
 class Login
 {
-    public $email;
-    public $password;
 
-    public function logar()
+    public function auth(string $email, string|int $password): string
     {
-        echo "O meu email é {$this->email} e a minha senha é {$this->password}";
+        return "O meu email é {$email} e a minha senha é {$password}";
     }
 }
